@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaGuide</title>
+    <link rel="icon" href="logo.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <style>
+    body {
+      background-color: #212529;
+      color: #f8f9fa;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+      padding: 60px 20px;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      background-color: #2b3035;
+      border: 1px solid #495057;
+      color: #f8f9fa;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    }
+
+    .card {
+      background-color: #2b3035;
+      border: none;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      color: #dee2e6;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+      background-color: #343a40;
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f8f9fa;
+      border-radius: 14px 14px 0 0;
+      padding: 18px 20px;
+    }
+
+    .card-body {
+      background-color: #2b3035;
+      padding: 25px;
+      border-top: 1px solid #495057;
+      font-size: 1.05rem;
+      animation: fadeSlideIn 0.4s ease;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #adb5bd;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+            <img src="logo.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+            PharmaGuide
+            </a>
+        </div>
+        </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="formulary.html">Formulary</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="interactions.html">Interactions</a>
+            </li>
+    </div>
+  </div>
+</nav>
+
+
+
+  <div class="container">
+    <h1 class="page-title">Formulary</h1>
+
+    <div class="search-bar mb-4">
+      <input type="text" id="search" placeholder="Search for a drug...">
+    </div>
+
+    <!-- Drug Cards -->
+    <div id="drug-list">
+
+      <!-- Aspirin -->
+      <div class="card drug-card" data-name="aspirin">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#aspirin">
+          Aspirin
+        </div>
+        <div id="aspirin" class="collapse">
+          <div class="card-body">
+            <p><strong>Class:</strong> NSAID, Antiplatelet agent</p>
+            <p><strong>Mechanism:</strong> Irreversibly inhibits COX-1 and COX-2, reducing thromboxane A2 production and platelet aggregation.</p>
+            <p><strong>Side Effects:</strong> GI bleeding, ulceration, tinnitus (at high doses).</p>
+            <p><strong>Clinical Notes:</strong> Avoid in children with viral infections; increased bleeding risk with anticoagulants.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ibuprofen -->
+      <div class="card drug-card" data-name="ibuprofen">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#ibuprofen">
+          Ibuprofen
+        </div>
+        <div id="ibuprofen" class="collapse">
+          <div class="card-body">
+            <p><strong>Class:</strong> NSAID</p>
+            <p><strong>Mechanism:</strong> Inhibits COX-1 and COX-2, reducing prostaglandin synthesis.</p>
+            <p><strong>Side Effects:</strong> GI irritation, ulceration, kidney impairment, increased bleeding risk.</p>
+            <p><strong>Clinical Notes:</strong> Avoid combining with other NSAIDs; caution with anticoagulants or renal disease.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metformin -->
+      <div class="card drug-card" data-name="metformin">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#metformin">
+          Metformin
+        </div>
+        <div id="metformin" class="collapse">
+          <div class="card-body">
+            <p><strong>Class:</strong> Biguanide, Antidiabetic</p>
+            <p><strong>Mechanism:</strong> Reduces hepatic glucose production and increases insulin sensitivity.</p>
+            <p><strong>Side Effects:</strong> GI upset, lactic acidosis (rare), vitamin B12 deficiency (long-term).</p>
+            <p><strong>Clinical Notes:</strong> Avoid in renal impairment; may interact with contrast dyes and certain medications.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sertraline -->
+      <div class="card drug-card" data-name="sertraline">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#sertraline">
+          Sertraline
+        </div>
+        <div id="sertraline" class="collapse">
+          <div class="card-body">
+            <p><strong>Class:</strong> SSRI (Selective Serotonin Reuptake Inhibitor)</p>
+            <p><strong>Mechanism:</strong> Inhibits reuptake of serotonin (5-HT) in the CNS, enhancing serotonergic transmission.</p>
+            <p><strong>Side Effects:</strong> Nausea, insomnia, sexual dysfunction, dizziness.</p>
+            <p><strong>Clinical Notes:</strong> May increase bleeding risk with NSAIDs or anticoagulants; taper dose gradually to avoid withdrawal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warfarin -->
+      <div class="card drug-card" data-name="warfarin">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#warfarin">
+          Warfarin
+        </div>
+        <div id="warfarin" class="collapse">
+          <div class="card-body">
+            <p><strong>Class:</strong> Anticoagulant (Vitamin K antagonist)</p>
+            <p><strong>Mechanism:</strong> Inhibits vitamin K epoxide reductase, reducing synthesis of clotting factors II, VII, IX, and X.</p>
+            <p><strong>Side Effects:</strong> Bleeding, bruising, nausea, alopecia.</p>
+            <p><strong>Clinical Notes:</strong> Monitor INR regularly; interacts with many drugs and foods high in vitamin K.</p>
+          </div>
+        </div>
+      </div>
+
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const drugCards = document.querySelectorAll(".drug-card");
+
+    searchInput.addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      drugCards.forEach(card => {
+        const name = card.getAttribute("data-name").toLowerCase();
+        card.style.display = name.includes(query) ? "" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>

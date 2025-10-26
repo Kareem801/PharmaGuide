@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaGuide</title>
     <link rel="icon" href="logo.png" type="image/x-icon"/>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
+
+<body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
         <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
             <img src="logo.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
             PharmaGuide
             </a>
@@ -26,17 +27,54 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Formulary</a>
+            <a class="nav-link" href="formulary.html">Formulary</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Interactions</a>
+            <a class="nav-link" href="interactions.html">Interactions</a>
             </li>
     </div>
   </div>
 </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to PharmaGuide</h1>
+      <p>Your trusted companion for safe and effective medication management. Explore detailed drug information, interactions, and clinical insights.</p>
+      <a href="interactions.html" class="btn btn-secondary btn-lg">Check Interactions</a>
+    </div>
+  </section>
+
+  <section class="features container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">💊 Comprehensive Formulary</h5>
+            <p class="card-text">Browse a database of medications, with dosing guidelines, side effects, and key clinical notes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">⚖️ Interaction Checker</h5>
+            <p class="card-text">Quickly identify potential drug interactions and understand their clinical significance before prescribing or administering.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">📘 About PharmaGuide</h5>
+            <p class="card-text">Our mission is to improve prescription safety via accessible, accurate pharmaceutical information.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>

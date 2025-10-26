@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaGuide</title>
+    <link rel="icon" href="logo.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+    body {
+      background-color: #212529; /* Bootstrap dark gray */
+      color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .card {
+      max-width: 700px;
+      width: 100%;
+      border: none;
+      border-radius: 20px;
+      background-color: #2b3035; /* Bootstrap dark surface */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.3s ease;
+      color: #f8f9fa;
+    }
+
+    .card-header {
+      background-color: #495057;
+      color: #f8f9fa;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.6rem;
+      padding: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .form-select {
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 1.1rem;
+      background-color: #343a40;
+      color: #f8f9fa;
+      border: 1px solid #495057;
+      transition: all 0.3s ease;
+    }
+
+    .form-select:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    }
+
+    .result-box {
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 12px;
+      background-color: #343a40;
+      border-left: 6px solid #6c757d; /* grey accent */
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+
+    .result-box.show {
+      max-height: 300px;
+      opacity: 1;
+      padding: 25px;
+      animation: fadeSlideIn 0.6s ease;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-box h5 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .result-box p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #dee2e6;
+    }
+
+    .text-muted {
+      color: #adb5bd !important;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+            <img src="logo.png" href="index.html" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+            PharmaGuide
+            </a>
+        </div>
+        </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="formulary.html">Formulary</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="interactions.html">Interactions</a>
+            </li>
+    </div>
+  </div>
+</nav>
+<div class="content">
+    <div class="card">
+      <div class="card-header">
+        Drug Interaction Checker
+      </div>
+      <div class="card-body">
+        <div class="mb-4 text-center">
+          <p class="text-muted">Select two drugs to view possible interactions.</p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <select id="drug1" class="form-select">
+              <option value="">-- Choose first drug --</option>
+              <option value="aspirin">Aspirin</option>
+              <option value="ibuprofen">Ibuprofen</option>
+              <option value="metformin">Metformin</option>
+              <option value="sertraline">Sertraline</option>
+              <option value="warfarin">Warfarin</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select id="drug2" class="form-select">
+              <option value="">-- Choose second drug --</option>
+              <option value="aspirin">Aspirin</option>
+              <option value="ibuprofen">Ibuprofen</option>
+              <option value="metformin">Metformin</option>
+              <option value="sertraline">Sertraline</option>
+              <option value="warfarin">Warfarin</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="result" class="result-box mt-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const resultBox = document.getElementById('result');
+    const drug1 = document.getElementById('drug1');
+    const drug2 = document.getElementById('drug2');
+
+    const interactions = {
+      "aspirin_ibuprofen": {
+        title: "Aspirin + Ibuprofen",
+        text: "⚠️ Both are NSAIDs → Increased risk of GI bleeding. Avoid combined use unless supervised."
+      },
+      "aspirin_sertraline": {
+        title: "Aspirin + Sertraline",
+        text: "⚠️ Increased risk of bleeding due to combined platelet inhibition."
+      },
+      "aspirin_warfarin": {
+        title: "Aspirin + Warfarin",
+        text: "⚠️ High risk of serious bleeding; monitor closely if co-administered."
+      },
+      "ibuprofen_sertraline": {
+        title: "Ibuprofen + Sertraline",
+        text: "⚠️ Increased risk of GI bleeding due to platelet inhibition."
+      },
+      "ibuprofen_warfarin": {
+        title: "Ibuprofen + Warfarin",
+        text: "⚠️ High risk of bleeding; avoid or monitor closely."
+      },
+      "metformin_ibuprofen": {
+        title: "Metformin + Ibuprofen",
+        text: "⚠️ NSAIDs may reduce renal clearance of metformin, increasing risk of lactic acidosis."
+      },
+      "metformin_warfarin": {
+        title: "Metformin + Warfarin",
+        text: "⚠️ May alter warfarin effect slightly; monitor INR."
+      },
+      "sertraline_warfarin": {
+        title: "Sertraline + Warfarin",
+        text: "⚠️ May increase bleeding tendency; monitor INR closely."
+      }
+    };
+
+    function showInteraction() {
+      const d1 = drug1.value;
+      const d2 = drug2.value;
+      const key = [d1, d2].sort().join('_');
+
+      if (interactions[key]) {
+        resultBox.classList.add('show');
+        resultBox.innerHTML = `
+          <h5>${interactions[key].title}</h5>
+          <p class="mb-0">${interactions[key].text}</p>
+        `;
+      } else if (d1 && d2 && d1 === d2) {
+        resultBox.classList.add('show');
+        resultBox.innerHTML = `<p class="mb-0 text-muted">Please select two different drugs.</p>`;
+      } else if (d1 && d2) {
+        resultBox.classList.add('show');
+        resultBox.innerHTML = `<p class="mb-0 text-success">No major interactions found between <strong>${d1}</strong> and <strong>${d2}</strong>.</p>`;
+      } else {
+        resultBox.classList.remove('show');
+        resultBox.innerHTML = "";
+      }
+    }
+
+    drug1.addEventListener('change', showInteraction);
+    drug2.addEventListener('change', showInteraction);
+  </script>
+
+</body>
+</html>
